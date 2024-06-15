@@ -1,0 +1,46 @@
+.login_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.login_container > div {
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 600px;
+  padding: 30px;
+}
+
+.login_container form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.login_container form p {
+  text-align: center;
+}
+
+.login_container label {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.login_container label span {
+  font-weight: 600;
+}
+
+.login_container label > input {
+  padding: 7px;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  font-size: 17px;
+}
+
+.login_container form button {
+  font-size: 16px;
+}

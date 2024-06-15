@@ -1,0 +1,128 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+#root {
+  color: #171717;
+  padding: 20px;
+}
+
+button {
+  padding: 7px 10px;
+  border-radius: 5px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-danger {
+  color: white;
+  background-color: rgb(252, 68, 68);
+}
+
+.btn-success {
+  color: white;
+  background-color: rgb(48, 156, 48);
+}
+
+.btn-info {
+  color: white;
+  background-color: rgb(177, 177, 2);
+}
+
+.app-header {
+  display: flex;
+  justify-content: end;
+}
+
+.wrapper > h1 {
+  text-align: center;
+}
+
+.todo_form {
+  max-width: 600px;
+  margin-inline: auto;
+  display: flex;
+  margin-top: 20px;
+  gap: 10px;
+  justify-content: center;
+}
+
+.todo_form > input {
+  padding: 7px 10px;
+  border-radius: 5px;
+  border: 2px solid gray;
+  font-size: 16px;
+  flex: 1;
+}
+
+.todo_form > button {
+  padding-inline: 15px;
+  font-size: 15px;
+  border: none;
+}
+
+.all-todos {
+  max-width: 600px;
+  margin-inline: auto;
+  margin-top: 20px;
+}
+
+.todos {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.todo {
+  border: 1px solid lightgray;
+  padding: 15px;
+  font-size: 17px;
+  border-radius: 5px;
+  gap: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  div {
+    display: flex;
+    gap: 10px;
+  }
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 30px;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 600px;
+
+  .update {
+    margin-top: 20px;
+    display: flex;
+    justify-content: end;
+  }
+
+  input {
+    padding: 7px;
+    margin-top: 15px;
+    font-size: 16px;
+    width: 100%;
+  }
+}
+
+.modal_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

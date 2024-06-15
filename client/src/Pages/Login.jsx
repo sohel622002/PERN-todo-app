@@ -3,7 +3,7 @@ import "../assets/css/login.css";
 import Cookies from "js-cookie";
 import { Link } from "react-router-dom";
 
-export default function Login() {
+export default function Login({ setUser }) {
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
@@ -23,9 +23,11 @@ export default function Login() {
       });
       const resData = await response.json();
       if (!response.ok) throw new Error("Error in login!");
-      Cookies.set("token", resData.token);
+      Cookies.set("token", resData.token, {
+        expires: 60 * 60 * 1000,
+      });
+      setUser(resData.user);
       navigate("/");
-      console.log(resData);
     } catch (error) {
       console.log(error);
     }

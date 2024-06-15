@@ -4,11 +4,12 @@ import Home from "./Pages/Home";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
 import Cookies from "js-cookie";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
   const navigate = useNavigate();
-  
+  const [user, setUser] = useState();
+
   useEffect(() => {
     const isAuthanticated = Cookies.get("token");
     if (!isAuthanticated) {
@@ -19,9 +20,9 @@ function App() {
   return (
     <div className="wrapper">
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/" element={<Home user={user} />} />
+        <Route path="/login" element={<Login setUser={setUser} />} />
+        <Route path="/register" element={<Register setUser={setUser} />} />
       </Routes>
     </div>
   );

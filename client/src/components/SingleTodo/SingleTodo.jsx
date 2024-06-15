@@ -11,7 +11,7 @@ export default function SingleTodo({ todo, setTodos }) {
     const res = await updateTodo(data);
     setTodos((prevData) =>
       prevData.map((t) => {
-        if (t.todo_id === todo.todo_id) {
+        if (t.id === todo.id) {
           return { ...t, description: updatedTodo };
         } else {
           return t;
@@ -22,10 +22,10 @@ export default function SingleTodo({ todo, setTodos }) {
   };
 
   const deleteTodoHandler = async () => {
-    const res = await deleteTodo(todo.todo_id);
+    const res = await deleteTodo(todo.id);
     setTodos((prevData) =>
       prevData.filter((t) => {
-        if (t.todo_id !== todo.todo_id) {
+        if (t.id !== todo.id) {
           return { ...t, description: updatedTodo };
         }
       })

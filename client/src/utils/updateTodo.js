@@ -3,7 +3,7 @@ import Cookies from "js-cookie";
 export const updateTodo = async (todo) => {
   try {
     const response = await fetch(
-      `http://localhost:3000/todos/${todo.todo_id}`,
+      `http://localhost:3000/todos/${todo.id}`,
       {
         method: "PUT",
         headers: {

@@ -8,7 +8,6 @@ export default function Todo() {
 
   const fetchTodos = async () => {
     const data = await getTodos();
-    console.log(data);
     setTodos(data);
   };
 
@@ -16,6 +15,7 @@ export default function Todo() {
     e.preventDefault();
     const description = new FormData(e.target).get("description");
     const [response] = await postTodo(description);
+    delete response.user_id;
     const updatedTodo = [...todos, response];
     console.log(updatedTodo);
     setTodos(updatedTodo);
@@ -31,14 +31,16 @@ export default function Todo() {
     <div>
       <form className="todo_form" onSubmit={handleAddTodo}>
         <input type="text" placeholder="Enter todo" name="description" />
-        <button type="submit" className="btn-success">ADD</button>
+        <button type="submit" className="btn-success">
+          ADD
+        </button>
       </form>
       <div className="all-todos">
         <h3>All Todos</h3>
         <div className="todos">
           {todos &&
             todos.map((todo) => (
-              <SingleTodo key={todo.todo_id} todo={todo} setTodos={setTodos} />
+              <SingleTodo key={todo.id} todo={todo} setTodos={setTodos} />
             ))}
         </div>
       </div>

@@ -37,7 +37,9 @@ button {
 
 .app-header {
   display: flex;
-  justify-content: end;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
 }
 
 .wrapper > h1 {

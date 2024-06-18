@@ -2,13 +2,20 @@ import React, { useEffect, useState } from "react";
 import SingleTodo from "../SingleTodo/SingleTodo";
 import { getTodos } from "../../utils/getTodos";
 import { postTodo } from "../../utils/postTodo";
+import { useNavigate } from "react-router";
 
 export default function Todo() {
   const [todos, setTodos] = useState([]);
+  const navigate = useNavigate();
 
   const fetchTodos = async () => {
-    const data = await getTodos();
-    setTodos(data);
+    try {
+      const data = await getTodos();
+      setTodos(data);
+    } catch (error) {
+      console.log(error);
+      navigate("/login");
+    }
   };
 
   const handleAddTodo = async (e) => {

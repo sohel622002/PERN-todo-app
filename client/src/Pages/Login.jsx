@@ -19,13 +19,12 @@ export default function Login({ setUser }) {
         headers: {
           "Content-type": "application/json",
         },
+        credentials: "include",
         body: JSON.stringify(data),
       });
       const resData = await response.json();
+      console.log(resData);
       if (!response.ok) throw new Error("Error in login!");
-      Cookies.set("token", resData.token, {
-        expires: 60 * 60 * 1000,
-      });
       setUser(resData.user);
       navigate("/");
     } catch (error) {

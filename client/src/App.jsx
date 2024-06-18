@@ -7,15 +7,7 @@ import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
 
 function App() {
-  const navigate = useNavigate();
   const [user, setUser] = useState();
-
-  useEffect(() => {
-    const isAuthanticated = Cookies.get("token");
-    if (!isAuthanticated) {
-      navigate("/login");
-    }
-  }, []);
 
   return (
     <div className="wrapper">

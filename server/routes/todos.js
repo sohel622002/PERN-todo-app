@@ -1,12 +1,8 @@
 const router = require("express").Router();
 const pool = require("../db");
-const cookieParser = require("cookie-parser");
-
-router.use(cookieParser());
 
 router.get("/", async (req, res) => {
   try {
-    // const todos = await pool.query("SELECT * FROM todo ORDER BY id;");
     const todos = await pool.query(
       "SELECT t.id, t.description FROM todo AS t INNER JOIN users AS u ON t.user_id=u.id WHERE u.id = $1;",
       [req.user]

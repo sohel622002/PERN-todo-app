@@ -25,7 +25,14 @@ router.post("/register", async (req, res) => {
 
     const token = jwtGenerator(insertUser.rows[0].id);
 
-    res.json({ token });
+    res.cookie("token", token, {
+      maxAge: 48 * 60 * 60 * 1000,
+      httpOnly: true,
+    });
+
+    res.json({
+      user: { name: insertUser.rows[0].name, email: insertUser.rows[0].email },
+    });
   } catch (error) {
     console.log(error);
     res.status(500).send("Server Error");
@@ -55,7 +62,10 @@ router.post("/login", async (req, res) => {
 
     const token = jwtGenerator(user.rows[0].id);
 
-    res.cookie("jwt", "This is some jwt");
+    res.cookie("token", token, {
+      maxAge: 48 * 60 * 60 * 1000,
+      httpOnly: true,
+    });
 
     res.json({
       token,

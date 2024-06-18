@@ -3,7 +3,7 @@ import "../assets/css/login.css";
 import Cookies from "js-cookie";
 import { Link } from "react-router-dom";
 
-export default function Register() {
+export default function Register({ setUser }) {
   const navigate = useNavigate();
 
   const handleRegister = async (e) => {
@@ -20,11 +20,12 @@ export default function Register() {
         headers: {
           "Content-type": "application/json",
         },
+        credentials: "include",
         body: JSON.stringify(data),
       });
       const resData = await response.json();
       if (!response.ok) throw new Error("Error in register!");
-      Cookies.set("token", resData.token);
+      setUser(resData.user);
       navigate("/");
       console.log(resData);
     } catch (error) {

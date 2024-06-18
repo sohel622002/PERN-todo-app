@@ -1,4 +1,4 @@
-import Cookies from "js-cookie";
+
 
 export const postTodo = async (todo) => {
   try {
@@ -6,8 +6,8 @@ export const postTodo = async (todo) => {
       method: "POST",
       headers: {
         "Content-type": "application/json",
-        token: Cookies.get("token"),
       },
+      credentials: "include",
       body: JSON.stringify({ description: todo }),
     });
     if (!response.ok) throw new Error("POST todo failed");
